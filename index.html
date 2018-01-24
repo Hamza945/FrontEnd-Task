@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="MyFirstAPP">
+
+<head>
+  <meta charset="utf-8" />
+  <title>AngularJS App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.angularjs.org/1.6.5/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.8/angular-resource.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+  <div class="container" id="tourpackages-carousel">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="data in firstTenRecords">
+        <div class="thumbnail">
+          <img ng-src="{{data.advertisementAssets[0].advertisementThumbnails.inventory_m.url}}" alt="">
+          <div class="caption">
+            <p class="address" ng-if="data.realestateSummary.address.fullAddress.length>0">{{data.realestateSummary.address.fullAddress}}</p>
+            <p class="address" ng-if="!data.realestateSummary.address.fullAddress.length>0">No Address</p>
+            <p class="city">{{data.realestateSummary.address.postalCode}} {{data.realestateSummary.address.street}} / {{data.realestateSummary.address.city}}</p>
+            <div class="bottom-text ">
+              <span class="float-left room-price">{{data.advertisementPrice.baseRent}} &euro;</span>
+              <div class="float-right numberOfRoom">
+                <span>{{data.realestateSummary.numberOfRooms}} </span>
+                <span> ab {{data.realestateSummary.space | number:2}} ㎡</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End row -->
+  </div>
+  <!-- End container -->
+</body>
+
+</html>
