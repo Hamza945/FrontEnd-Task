@@ -20,12 +20,13 @@
       // if (!limit) {
       //   limit = 30;
       // }
-
+     // $('#myDiv').hide();
       return $http.get(apiHost)
         .then(GetDataComplete)
         .catch(GetDataFailed);
 
       function GetDataComplete(response) {
+        $('#myDiv').hide();
         return response.data;
       }
 

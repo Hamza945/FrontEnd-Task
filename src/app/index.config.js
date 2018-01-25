@@ -6,9 +6,10 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig) {
+  function config($logProvider, $httpProvider, toastrConfig) {
     // Enable log
     $logProvider.debugEnabled(true);
+    $('#myDiv').show();
 
     // Set options third-party lib
     toastrConfig.allowHtml = true;
