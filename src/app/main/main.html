@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="data in main.firstTenRecords">
+      <div class="thumbnail">
+        <img ng-src="{{data.advertisementAssets[0].advertisementThumbnails.inventory_m.url}}" alt="">
+        <div class="caption">
+          <p class="address" ng-if="data.realestateSummary.address.fullAddress.length>0">{{data.realestateSummary.address.fullAddress}}</p>
+          <p class="address" ng-if="!data.realestateSummary.address.fullAddress.length>0">No Address</p>
+          <p class="city">{{data.realestateSummary.address.postalCode}} {{data.realestateSummary.address.street}} / {{data.realestateSummary.address.city}}</p>
+          <div class="bottom-text ">
+            <span class="pull-left room-price">{{data.advertisementPrice.baseRent}} &euro;</span>
+            <div class="pull-right numberOfRoom">
+              <span>{{data.realestateSummary.numberOfRooms}} </span>
+              <span> ab {{data.realestateSummary.space | number:2}} ㎡</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
